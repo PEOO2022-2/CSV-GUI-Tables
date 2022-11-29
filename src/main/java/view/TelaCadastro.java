@@ -188,7 +188,10 @@ public class TelaCadastro extends javax.swing.JFrame {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
-        System.out.println(aluno.getNome());
+        
+        TelaInteracao telaInteracao = new TelaInteracao();
+        telaInteracao.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_cadastrarBtnActionPerformed
 
     /**

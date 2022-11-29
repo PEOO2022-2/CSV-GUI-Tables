@@ -6,6 +6,7 @@
 package com.mycompany.cadastroalunos;
 
 import view.TelaCadastro;
+import view.TelaInteracao;
 
 /**
  *
@@ -14,10 +15,9 @@ import view.TelaCadastro;
 public class CadastroAlunos {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         java.awt.EventQueue.invokeLater(new Runnable() {
           public void run() {
-               TelaCadastro frame = new TelaCadastro();
+               TelaInteracao frame = new TelaInteracao();
                frame.setVisible(true);
           }
         });
