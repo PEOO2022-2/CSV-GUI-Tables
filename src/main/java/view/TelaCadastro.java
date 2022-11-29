@@ -4,6 +4,11 @@
  */
 package view;
 import com.mycompany.cadastroalunos.Aluno;
+import com.mycompany.cadastroalunos.ReadWriteCSV;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -174,6 +179,14 @@ public class TelaCadastro extends javax.swing.JFrame {
                 cursoTxtField.getText(), 
                 matriculaTxtField.getText()
         );
+        String fileName = "alunos.csv";
+        try {
+            List<Aluno> alunos = new ReadWriteCSV().readCSV("./src/main/java/resources/" + fileName);
+            alunos.add(aluno);
+            new ReadWriteCSV().writeCSV(alunos, "./src/main/java/resources/" + fileName);
+        } catch (IOException ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
         JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
         System.out.println(aluno.getNome());
     }//GEN-LAST:event_cadastrarBtnActionPerformed
