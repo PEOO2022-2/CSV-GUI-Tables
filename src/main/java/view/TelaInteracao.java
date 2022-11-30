@@ -4,6 +4,10 @@
  */
 package view;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author FonsecAd
@@ -35,6 +39,11 @@ public class TelaInteracao extends javax.swing.JFrame {
 
         jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jToggleButton1.setText("Ver Alunos");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jToggleButton2.setText("Upload CSV");
@@ -107,6 +116,17 @@ public class TelaInteracao extends javax.swing.JFrame {
         this.dispose();            
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        TelaVisualizacaoAlunos frame;
+        try {
+            frame = new TelaVisualizacaoAlunos();
+            frame.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(TelaInteracao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
