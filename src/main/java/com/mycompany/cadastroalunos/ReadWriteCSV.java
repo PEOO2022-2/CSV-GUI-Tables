@@ -37,12 +37,25 @@ public class ReadWriteCSV {
         FileWriter outputfile = new FileWriter(pathToCsv);
         CSVWriter writer = new CSVWriter(outputfile);
 
-        String[] header = { "nome", "idade", "curso", "matricula" };
+        String[] header = { "Nome", "Idade", "Curso", "Matricula" };
         writer.writeNext(header);
         for (Aluno aluno: alunos) {
             String[] linha = { aluno.nome, String.valueOf(aluno.idade), aluno.curso, aluno.matricula };
             writer.writeNext(linha);
         }
         writer.close();
+    }
+    
+    
+    public static String[] readCSVHeader(String pathToCsv) throws IOException {
+        try {
+            FileReader filereader = new FileReader(pathToCsv);
+            CSVReader csvReader = new CSVReader(filereader);
+            String[] nextRecord;
+ 
+            return csvReader.readNext();
+        } catch(Exception e) {
+            return null;
+        }
     }
 }
